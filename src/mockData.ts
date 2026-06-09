@@ -540,7 +540,7 @@ class MockDatabase {
       ...order,
       id: orderId,
       order_date: new Date().toISOString(),
-      total_amount,
+      total_amount:totalAmount,
       status: 'Pending',
       items: fullItems
     };
