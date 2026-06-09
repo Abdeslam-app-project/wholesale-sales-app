@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { db, User, Client, Visit, Product, Expense, Order } from '../mockData';
-import { translations, TranslationSchema } from '../translations';
-import { 
-  MapPin, CheckCircle, Clock, ShoppingCart, 
-  DollarSign, FileText, Camera, Mic, Volume2, 
-  Trash2, Plus, Minus, UserCheck, Settings, RefreshCw 
+import { db, User, Client, Visit, Product } from '../mockData';
+import { TranslationSchema } from '../translations';
+
+import {
+  MapPin, Clock, ShoppingCart,
+  DollarSign, FileText, Camera, Mic, Volume2,
+  Trash2, RefreshCw
 } from 'lucide-react';
 
 interface MobileSimulatorProps {
@@ -216,7 +216,8 @@ export const MobileSimulator: React.FC<MobileSimulatorProps> = ({ currentLang, i
     const items = cart.map(item => ({
       product_id: item.product.id,
       quantity: item.quantity,
-      unit_price: item.product.price
+      unit_price: item.product.price,
+      total_price: item.quantity * item.product.price
     }));
 
     db.addOrder({
